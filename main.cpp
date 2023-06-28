@@ -25,7 +25,6 @@ bool isOperator(char input){
   }
 }
 
-//Độ ưu tiên, ưu tiên cao nhất là "^" sau đó là "*" và "/" rồi cuối cùng là + và -
 int level (char input){
   if(input=='^'){
     return 3;
@@ -49,11 +48,11 @@ string polish(string input){
   for(int i = 0 ; i < input.length() ; i ++)
   {
     //input[i] là toán hạng
-    if(!isOperator(input[i]) && input[i]!='(' && input[i] != ')') result += input[i]; 
+    if(isOperator(input[i]) == false && input[i]!='(' && input[i] != ')') result += input[i]; 
     //input[i] là dấu ngoặc mở
     if(input[i]=='(') myStack.push(input[i]);
     //input[i] là toán tử
-    if(isOperator(input[i])){
+    if(isOperator(input[i]) == true){
       while(level(myStack.top()) >= level(input[i]))
       {
         result += myStack.top();
