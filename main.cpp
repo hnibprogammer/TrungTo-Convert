@@ -25,6 +25,7 @@ bool isOperator(char input){
   }
 }
 
+//Độ ưu tiên, ưu tiên cao nhất là "^" sau đó là "*" và "/" rồi cuối cùng là + và -
 int level (char input){
   if(input=='^'){
     return 3;
