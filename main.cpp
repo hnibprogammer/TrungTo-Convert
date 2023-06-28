@@ -57,6 +57,7 @@ string polish(string input){
         result += myStack.top();
         myStack.pop();
       }
+      myStack.push(input[i]);
     }
     //input[i] là dấu ngoặc đóng 
     if(input[i] == ')'){
@@ -75,6 +76,6 @@ string polish(string input){
 
 
 int main(){
-  cout<<polish("A+B");
+  cout<<polish("A+(B*C-(D/E^F)*G)*H");
   return 0;
 }
