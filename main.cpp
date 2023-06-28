@@ -41,8 +41,7 @@ int level (char input){
 
 string polish(string input){
   input+=")";
-  cout<<input;
-  string result;
+  string result="";
   stack <char> myStack;
   myStack.push('(');
   for(int i = 0 ; i < input.length() ; i ++)
@@ -53,7 +52,7 @@ string polish(string input){
     if(input[i]=='(') myStack.push(input[i]);
     //input[i] là toán tử
     if(isOperator(input[i]) == true){
-      while(level(myStack.top()) >= level(input[i]))
+      while(isOperator(myStack.top())==true&&level(myStack.top()) >= level(input[i]))
       {
         result += myStack.top();
         myStack.pop();
